@@ -40,17 +40,17 @@ window.onload=function(){
 	var times=(time*3600)+(minu*60)+sec;/*当前时间的总秒数**/
 	if(times>=0&&times<=32400){/*时间段的总秒数：32400*/
 		/* 0:00-9:00  */
-		i=10;
+		i=333333;
 		allsum=times*i;
 		sum=allsum
 	}else if(times>=32400&&times<=43200){/*时间段的总秒数：10800*/
 		/* 9:00-12:00*/
-		i=300;
+		i=555555;
 		allsum=sum+(32400*10)+(times-32400)
 		sum=allsum
 	}else if(times>=43200&&times<=61200){/*时间段的总秒数：18000*/
 		/* 12:00-17:00*/
-		i=500;
+		i=333333;
 		allsum=sum+(32400*10)+ (10800*300)+(times-43200)
 		sum=allsum
 	}else if(times>=61200&&times<=75600){/*时间段的总秒数：14400*/
