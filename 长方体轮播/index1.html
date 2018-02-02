@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 150px auto;
+            perspective: 500px;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 1s;
+ 			transform: rotateX(0deg);
+        }
+        @keyframes move {
+            from{
+                transform: rotateX(0deg);
+            }
+            to{
+                transform: rotateX(360deg);
+            }
+        }
+        ul li{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 28px;
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        ul li:nth-child(1){
+            background: red;
+            transform:rotateX(90deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(2){
+            background: green;
+            transform: rotateX(180deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(3){
+            background: blue;
+            transform: rotateX(270deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(4){
+            background: yellow;
+            transform:  rotateX(360deg) translateZ(100px) scale(2,1);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+</body>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var i=0
+	setInterval(function(){
+		i+=90
+		if(i%360==0){
+			$("ul li").eq(3).html("添加"+i)
+			$("ul li").eq(2).html("添加"+(i-1))
+			$("ul li").eq(1).html("添加"+(i-2))
+			$("ul li").eq(0).html("添加"+(i-3))
+		}
+		$("ul").css("transform","rotateX("+i+"deg)")
+		
+		
+	},1000)
+</script>
+</html>
